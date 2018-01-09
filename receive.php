@@ -103,6 +103,15 @@
 				)
 			);
         		break;
+		  default:
+			$objID = $json_obj->events[0]->message->id;
+			$url = 'https://api.line.me/v2/bot/message/'.$objID.'/content';
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				'Authorization: Bearer 9knlJRZBbsuxmgFxx0cpBMCTp8AmWS2eaXaO81WxBTUE0Z74Sjnq6lJXd+g86BP7w4Pe+aH/O4eiZcfgOMQuAISQX+FOgxDNHgyxxX8GTgTfqOW+v2/HA5qJ1YFusjV8OhsHuskj4mgIgZX1Eotv0QdB04t89/1O/w1cDnyilFU=";
+				//n4mZIQp9UqWXhCEgIg1fLmyjUeDMgCe/bF+4EOBDZ7fGscOgNGFsHTr3fGco/E7A5hq7A7jiDszSCk/j3pVVPbx7nf0E+FKe5jX6syQGOxO7kwp5lmZ3zRES1qxceq/N+/E9Qy5gSDbBx56l8sScTwdB04t89/1O/w1cDnyilFU=',
+			));
  }
 
  $myfile = fopen("log.txt","w+") or die("Unable to open file!"); //設定一個log.txt 用來印訊息
